@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv) {
 
-  GameWindowSharedPtr window = GameWindowSharedPtr::Create();
+  GameWindowSharedPtr window = GameWindow::Create();
 
   std::cout << window->test << std::endl;
 

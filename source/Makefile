@@ -1,11 +1,18 @@
 
+CC = g++
+FLAGS = -std=c++0x -W -Wall 
+LIBS = -lglut -lGL -lGLU -lGLEW
+INCLUDE_DIRS = -I./
+
+
+
 all: main
 
-main: view/gamewindow.o
-	g++ -W -Wall main.cpp -lglut -lGL -lGLU -lGLEW -o main
+main: gamewindow.o
+	$(CC) $(FLAGS) $(LIBS) main.cpp -o main gamewindow.o $(INCLUDE_DIRS) 
 
-view/gamewindow.o:
-	g++ -W -Wall -w view/gamewindow.cpp -lglut -lGL -lGLU -lGLEW
+gamewindow.o:
+	$(CC) $(FLAGS) $(LIBS) -c ./view/gamewindow.cpp $(INCLUDE_DIRS) 
 
 clean:
 	rm main
